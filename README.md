@@ -16,13 +16,16 @@ Por exemplo, digamos que temos três ordens de compra para uma ação: Ordem A c
 ## Tecnologias utilizadas
 
 O projeto foi feito utilizando:
-- React
+- React:
+
 Uma biblioteca para desenvolver a interface de usuário através de componentes reutilizáveis.
     
-- TypeScript 
+- TypeScript:
+
 Uma linguagem de programação que extende o JavaScript, inserindo recursos de tipagem estática, melhorando a escrita do código, facilitando a manutenção e diminuindo a quantidade de possíveis erros.
 
-- ESLint
+- ESLint:
+
 Uma ferramenta de análise de código para melhorar a formatação do código durante o desenvolvimento, com regras configuráveis para garantir a consistência do código.
 
 ## Getting Started

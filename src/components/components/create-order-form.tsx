@@ -5,9 +5,17 @@ import OrderSide from '../../interfaces/order/order-side'
 import { v4 } from 'uuid'
 import '../order-styles.css'
 import { createOrder } from '../../services/create-order'
-import type CreateOrderFormProps from '../../interfaces/order/create-order-form-props'
 
-export default function CreateOrderForm (orderProps: CreateOrderFormProps) {
+interface CreateOrderFormProps {
+  buyOrders: Order[]
+  sellOrders: Order[]
+  fulfilledOrders: Order[]
+  setBuyOrders: any
+  setSellOrders: any
+  setFulfilledOrders: any
+}
+
+export default function CreateOrderForm ({ buyOrders, sellOrders, fulfilledOrders, setBuyOrders, setSellOrders, setFulfilledOrders }: CreateOrderFormProps) {
   const { register, handleSubmit } = useForm<CreateOrderAttributes>()
 
   const handleRegister = (newOrder: CreateOrderAttributes) => {
@@ -17,14 +25,14 @@ export default function CreateOrderForm (orderProps: CreateOrderFormProps) {
       id: v4(),
       quantityRemaining: Number(newOrder.quantity),
       quantity: Number(newOrder.quantity),
-      price: Number(newOrder.price)
+      price: Number(newOrder.price),
     }
 
-    const newOrders = createOrder({ ...orderProps, order })
+    const newOrders = createOrder({ buyOrders, sellOrders, fulfilledOrders, order })
 
-    orderProps.setBuyOrders([...newOrders.buyOrders])
-    orderProps.setSellOrders([...newOrders.sellOrders])
-    orderProps.setFulfilledOrders([...newOrders.fulfilledOrders])
+    setBuyOrders([...newOrders.buyOrders])
+    setSellOrders([...newOrders.sellOrders])
+    setFulfilledOrders([...newOrders.fulfilledOrders])
   }
 
   return (

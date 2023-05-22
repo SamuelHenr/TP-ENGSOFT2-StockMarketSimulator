@@ -3,8 +3,11 @@
 ## Integrantes
 
 Gabriel Martins Medeiros Fialho
+
 Gabriel Torres Bolognani
+
 Mariano Glauber Torres Fernandes
+
 Samuel Henrique Miranda Alves
 
 ## Descrição do projeto

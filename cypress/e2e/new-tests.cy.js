@@ -5,8 +5,8 @@ describe('template spec', () => {
 
   it('Testa a criação de uma nova ordem', () => {
     // Insert input values
-    cy.get('input[name=price]').type(100)
-    cy.get('input[name=quantity]').type(10)
+    cy.get('input[name=price]').type("100", {force: true})
+    cy.get('input[name=quantity]').type("10", {force: true})
 
     // Click submit button
     cy.get('input[type=submit]').click()

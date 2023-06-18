@@ -316,9 +316,9 @@ describe('create order method', () => {
       expect(buyOrders.length).toBe(0)
 
       expect(sellOrders.length).toBe(3)
-      expect(sellOrders[0].id).toBe(sellOrder2.id)
-      expect(sellOrders[1].id).toBe(newSellOrder.id)
-      expect(sellOrders[2].id).toBe(sellOrder1.id)
+      expect(sellOrders[0].id).toBe(newSellOrder.id)
+      expect(sellOrders[1].id).toBe(sellOrder1.id)
+      expect(sellOrders[2].id).toBe(sellOrder2.id)
     })
 
     it('creates a not matched buy order and sorts by price', () => {

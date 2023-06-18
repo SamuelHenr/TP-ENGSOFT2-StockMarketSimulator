@@ -9,7 +9,7 @@ describe('template spec', () => {
     cy.get('input[name=quantity]').type("10", {force: true})
 
     // Click submit button
-    cy.get('input[type=submit]').click()
+    cy.get('input[type=submit]').click({force: true})
 
     // Check created Order
     cy.get('table').first().get('tbody tr').children().eq(1).should('have.text', '100')

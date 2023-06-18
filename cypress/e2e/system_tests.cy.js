@@ -8,46 +8,44 @@ describe('Testes de sistema', () => {
   });
 
   it('Valores da criação de uma nova ordem de compra são corretos', () => {
-    const price = '10'; // Valor para o campo "price"
-    const quantity = '20'; // Valor para o campo "quantity"
+    const price = '10'; 
+    const quantity = '20'; 
 
     cy.get('input[name=price]').type(price, { force: true })
     cy.get('input[name=quantity]').type(quantity, { force: true })
-    cy.get('#side').select('Buy', { force: true }); // Seleciona a opção "BUY" no select com id "side"
+    cy.get('#side').select('Buy', { force: true }); 
     cy.get('input[type=submit]').click({ force: true })
 
-    // Check created Order
     getTable(0).children().eq(1).should('have.text', price)
     getTable(0).children().eq(2).should('have.text', quantity)
   });
 
   it('Valores da criação de uma nova ordem de venda são corretos', () => {
-    const price = '10'; // Valor para o campo "price"
-    const quantity = '20'; // Valor para o campo "quantity"
+    const price = '10'; 
+    const quantity = '20'; 
 
     cy.get('input[name=price]').type(price, { force: true })
     cy.get('input[name=quantity]').type(quantity, { force: true })
-    cy.get('#side').select('Sell', { force: true }); // Seleciona a opção "BUY" no select com id "side"
+    cy.get('#side').select('Sell', { force: true }); 
     cy.get('input[type=submit]').click({ force: true })
 
-    // Check created Order
     getTable(1).children().eq(1).should('have.text', price)
     getTable(1).children().eq(2).should('have.text', quantity)
   });
 
   it('Compras e vendas de mesmo valor e quantidade se anulam', () => {
-    const price = '10'; // Valor para o campo "price"
-    const quantity = '20'; // Valor para o campo "quantity"
+    const price = '10'; 
+    const quantity = '20'; 
 
-    cy.get('input[name="price"]').type(price, { force: true }); // Insere o valor no campo "price"
-    cy.get('input[name="quantity"]').type(quantity, { force: true }); // Insere o valor no campo "quantity"
-    cy.get('#side').select('Buy', { force: true }); // Seleciona a opção "BUY" no select com id "side"
-    cy.get('input[type=submit]').click({ force: true }); // Envia o formulário  
+    cy.get('input[name="price"]').type(price, { force: true }); 
+    cy.get('input[name="quantity"]').type(quantity, { force: true }); 
+    cy.get('#side').select('Buy', { force: true }); 
+    cy.get('input[type=submit]').click({ force: true }); 
 
-    cy.get('input[name="price"]').clear({ force: true }).type(price, { force: true }); // Insere o valor no campo "price"
-    cy.get('input[name="quantity"]').clear({ force: true }).type(quantity, { force: true }); // Insere o valor no campo "quantity"
-    cy.get('#side').select('Sell', { force: true }); // Seleciona a opção "BUY" no select com id "side"
-    cy.get('input[type=submit]').click({ force: true }); // Envia o formulário
+    cy.get('input[name="price"]').clear({ force: true }).type(price, { force: true }); 
+    cy.get('input[name="quantity"]').clear({ force: true }).type(quantity, { force: true }); 
+    cy.get('#side').select('Sell', { force: true }); 
+    cy.get('input[type=submit]').click({ force: true }); 
 
     getTable(0).should('have.length', 0);
     getTable(1).should('have.length', 0);
@@ -70,7 +68,6 @@ describe('Testes de sistema', () => {
     cy.get('#side').select('Buy', { force: true })
     cy.get('input[type=submit]').click({ force: true })
 
-    // Check created Order
     getTable(0).children().eq(3).should('have.text', quantityBuy - quantitySell)
     getTable(2).children().eq(3).should('have.text', '0')
   });
@@ -91,7 +88,6 @@ describe('Testes de sistema', () => {
     cy.get('#side').select('Buy', { force: true })
     cy.get('input[type=submit]').click({ force: true })
 
-    // Check created Order
     getTable(0).children().eq(3).should('have.text', quantityBuy)
     getTable(1).children().eq(3).should('have.text', quantitySell)
   });

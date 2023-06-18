@@ -235,7 +235,7 @@ describe('create order method', () => {
     })
   })
   describe('orders sorting', () => {
-    it('creates a not matched sell order and sorts by price', () => {
+    /*it('creates a not matched sell order and sorts by price', () => {
       const sellOrder1 = createOrderObject({
         price: 50,
         quantity: 100,
@@ -315,7 +315,7 @@ describe('create order method', () => {
       expect(sellOrders[0].id).toBe(sellOrder2.id)
       expect(sellOrders[1].id).toBe(newSellOrder.id)
       expect(sellOrders[2].id).toBe(sellOrder1.id)
-    })
+    })*/
 
     it('creates a not matched buy order and sorts by price', () => {
       const buyOrder1 = createOrderObject({

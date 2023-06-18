@@ -4,14 +4,14 @@ import type CreateOrderRequest from '../interfaces/order/create-order-request'
 
 export const createOrder = (orderRequest: CreateOrderRequest) => {
   if (Number(orderRequest.order.quantity) <= 0 && Number(orderRequest.order.price) <= 0) {
-    throw new Error('Price and quantity must be positive');
+    throw new Error('Price and quantity must be positive')
   }
   if (Number(orderRequest.order.quantity) <= 0) {
-    throw new Error('Quantity must be positive');
+    throw new Error('Quantity must be positive')
   }
 
   if (Number(orderRequest.order.price) <= 0) {
-    throw new Error('Price must be positive');
+    throw new Error('Price must be positive')
   }
 
   matchOrder(orderRequest)

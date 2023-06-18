@@ -11,7 +11,6 @@ export default function CreateOrderForm (orderProps: CreateOrderFormProps) {
   const { register, handleSubmit } = useForm<CreateOrderAttributes>()
 
   const handleRegister = (newOrder: CreateOrderAttributes) => {
-
     const order: Order = {
 
       ...newOrder,

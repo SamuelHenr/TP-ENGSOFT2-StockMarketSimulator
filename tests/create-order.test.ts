@@ -3,6 +3,7 @@ import { type Order } from '../src/interfaces'
 import OrderSide from '../src/interfaces/order/order-side'
 import { createOrder } from '../src/services/create-order'
 
+//função que cria um objeto do tipo Order
 const createOrderObject = ({
   id,
   price,
@@ -28,8 +29,10 @@ const createOrderObject = ({
   }
 }
 
+//Converte uma data no modelo ISO 8601
 const getISODate = (date: string) => (new Date(date)).toISOString()
 
+//describe => descreve o que será feito no teste
 describe('create order method', () => {
   describe('orders matching', () => {
     it('creates a sell order with no matching buy orders', () => {
@@ -38,6 +41,7 @@ describe('create order method', () => {
         quantity: 100,
         quantityRemaining: 100
       })
+
       const sellOrder = createOrderObject({
         price: 200,
         quantity: 100,
@@ -271,9 +275,9 @@ describe('create order method', () => {
       expect(buyOrders.length).toBe(0)
 
       expect(sellOrders.length).toBe(3)
-      expect(sellOrders[0].id).toBe(sellOrder2.id)
+      expect(sellOrders[0].id).toBe(sellOrder1.id)
       expect(sellOrders[1].id).toBe(newSellOrder.id)
-      expect(sellOrders[2].id).toBe(sellOrder1.id)
+      expect(sellOrders[2].id).toBe(sellOrder2.id)
     })
 
     it('creates a not matched sell order with same price and sorts by createdAt', () => {

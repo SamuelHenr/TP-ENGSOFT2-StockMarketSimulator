@@ -34,6 +34,38 @@ const getISODate = (date: string) => (new Date(date)).toISOString()
 
 //describe => descreve o que será feito no teste
 describe('create order method', () => {
+
+  describe('check for zero and negative values',() => {
+    it('throws an error if the quantity is zero or negative', () => {
+        const negativeQuantityOrder = createOrderObject({
+          price: 100,
+          quantity: -100,
+          quantityRemaining: -100
+        })
+        
+        expect(() => createOrder({
+          buyOrders: [],
+          sellOrders: [],
+          fulfilledOrders: [],
+          order: negativeQuantityOrder
+        })).toThrowError('Quantity must be positive')
+      })
+      
+      it('throws an error if the price is zero or negative', () => {
+        const negativePriceOrder = createOrderObject({
+          price: -100,
+          quantity: 100,
+          quantityRemaining: 100
+        })
+        
+        expect(() => createOrder({
+          buyOrders: [],
+          sellOrders: [],
+          fulfilledOrders: [],
+          order: negativePriceOrder
+        })).toThrowError('Price must be positive')
+      })
+  })
   describe('orders matching', () => {
     it('creates a sell order with no matching buy orders', () => {
       const buyOrder = createOrderObject({

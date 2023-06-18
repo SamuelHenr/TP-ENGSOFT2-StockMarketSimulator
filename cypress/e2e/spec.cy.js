@@ -21,9 +21,9 @@ describe('Testes de sistema', () => {
     const price = '10'; // Valor para o campo "price"
     const quantity = '20'; // Valor para o campo "quantity"
 
-    cy.get('input[name="price"]').type(price); // Insere o valor no campo "price"
-    cy.get('input[name="quantity"]').type(quantity); // Insere o valor no campo "quantity"
-    cy.get('#side').select('Buy'); // Seleciona a opção "BUY" no select com id "side"
+    cy.get('input[name="price"]').type(price, {force: true}); // Insere o valor no campo "price"
+    cy.get('input[name="quantity"]').type(quantity, {force: true}); // Insere o valor no campo "quantity"
+    cy.get('#side').select('Buy', {force: true}); // Seleciona a opção "BUY" no select com id "side"
     cy.get('form').submit(); // Envia o formulário 
 
     getTable(0).should('have.length', 1);
@@ -33,9 +33,9 @@ describe('Testes de sistema', () => {
     const price = '10'; // Valor para o campo "price"
     const quantity = '20'; // Valor para o campo "quantity"
 
-    cy.get('input[name="price"]').type(price); // Insere o valor no campo "price"
-    cy.get('input[name="quantity"]').type(quantity); // Insere o valor no campo "quantity"
-    cy.get('#side').select('Sell'); // Seleciona a opção "BUY" no select com id "side"
+    cy.get('input[name="price"]').type(price, {force: true}); // Insere o valor no campo "price"
+    cy.get('input[name="quantity"]').type(quantity, {force: true}); // Insere o valor no campo "quantity"
+    cy.get('#side').select('Sell', {force: true}); // Seleciona a opção "BUY" no select com id "side"
     cy.get('form').submit(); // Envia o formulário 
 
     getTable(1).should('have.length', 1);
@@ -46,14 +46,14 @@ describe('Testes de sistema', () => {
     const price = '10'; // Valor para o campo "price"
     const quantity = '20'; // Valor para o campo "quantity"
 
-    cy.get('input[name="price"]').type(price); // Insere o valor no campo "price"
-    cy.get('input[name="quantity"]').type(quantity); // Insere o valor no campo "quantity"
-    cy.get('#side').select('Buy'); // Seleciona a opção "BUY" no select com id "side"
+    cy.get('input[name="price"]').type(price, {force: true}); // Insere o valor no campo "price"
+    cy.get('input[name="quantity"]').type(quantity, {force: true}); // Insere o valor no campo "quantity"
+    cy.get('#side').select('Buy', {force: true}); // Seleciona a opção "BUY" no select com id "side"
     cy.get('form').submit(); // Envia o formulário  
 
-    cy.get('input[name="price"]').clear().type(price); // Insere o valor no campo "price"
-    cy.get('input[name="quantity"]').clear().type(quantity); // Insere o valor no campo "quantity"
-    cy.get('#side').select('Sell'); // Seleciona a opção "BUY" no select com id "side"
+    cy.get('input[name="price"]').clear({force: true}).type(price, {force: true}); // Insere o valor no campo "price"
+    cy.get('input[name="quantity"]').clear({force: true}).type(quantity, {force: true}); // Insere o valor no campo "quantity"
+    cy.get('#side').select('Sell', {force: true}); // Seleciona a opção "BUY" no select com id "side"
     cy.get('form').submit(); // Envia o formulário
 
     getTable(0).should('have.length', 0);

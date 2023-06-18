@@ -1,0 +1,19 @@
+
+name: React test
+
+on: [push]
+
+jobs:
+  unity_tests:
+
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Test with jest
+      run: |
+        npm install
+        npm test

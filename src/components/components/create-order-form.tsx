@@ -11,12 +11,6 @@ export default function CreateOrderForm (orderProps: CreateOrderFormProps) {
   const { register, handleSubmit } = useForm<CreateOrderAttributes>()
 
   const handleRegister = (newOrder: CreateOrderAttributes) => {
-    if (Number(newOrder.price) <= 0) {
-      throw new Error('Price must be positive');
-    }
-    else if (Number(newOrder.quantity) <= 0) {
-      throw new Error('Quantity must be positive');
-    }
 
     const order: Order = {
 

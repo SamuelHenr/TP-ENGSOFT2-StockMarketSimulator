@@ -33,13 +33,13 @@ export default function CreateOrderForm (orderProps: CreateOrderFormProps) {
       <form className="create-order-form" onSubmit={handleSubmit(handleRegister)}>
 
         <label htmlFor="price">Price:</label>
-        <input {...register('price', { required: true })} />
+        <input id="price" {...register('price', { required: true })} />
 
         <label htmlFor="quantity">Quantity:</label>
-        <input {...register('quantity', { required: true })} />
+        <input id="quantity" {...register('quantity', { required: true })} />
 
         <label htmlFor="side">Side:</label>
-        <select {...register('side')} id="side">
+        <select id="side" {...register('side')} id="side">
           <option value={OrderSide.BUY}>Buy</option>
           <option value={OrderSide.SELL}>Sell</option>
         </select>
